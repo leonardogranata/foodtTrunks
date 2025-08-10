@@ -18,11 +18,6 @@ __pycache__/
 *.local
 db.sqlite3
 
-# Arquivos do Django
-media/
-staticfiles/
-static/
-
 # Logs
 *.log
 
