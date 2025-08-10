@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %} 
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Food Trunks</title>
+    <link rel="stylesheet" href="{% static 'core/style.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>🍜 Food Trunks - Dragon Ball Z</h1>
+    </header>
+    <nav>
+        <a href='{% url 'home' %}'>Início</a>
+        <a href='{% url 'produtos' %}'>Produtos</a>
+        <a href='{% url 'cliente' %}'>Clientes</a>
+        <a href='{% url 'agenda' %}'>Agenda</a>
+        <a href='{% url 'faturamento' %}'>Faturamento</a>
+        <a href='{% url 'maisVendidos' %}'>Mais Vendidos</a>
+        <a href='{% url 'graficoProdutos' %}'>Gráfico</a>
+        <a href='{% url 'portifolioProdutos' %}'>Portifólio Produtos</a>
+
+    <form action="{% url 'logout' %}" method="post" style="margin: 8px 16px;">
+        {% csrf_token %}
+        <button type="submit" class="btn-logout">
+            <span style=" display: inline-block; width:16px; height:16px; background-size:contain; background-repeat:no-repeat; vertical-align:middle; margin-right:8px;"></span>
+            Logout
+        </button>
+    </form>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <span>
+                🍜<strong>Food Trunks</strong> &copy; {{ now|date:"Y" }} -- Sistema inspirado em Dragon Ball Z.
+            </span>
+            Feito com 💙 por DEV.AGILE
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %} 
+{% block content %} 
+
+    <h2>Agenda de Atendimentos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Local</th>
+                <th>Endereço</th>
+                <th>Data</th>
+                <th>Horário</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for atendimento in agenda %} 
+                <tr>
+                    <td>{{ atendimento.nome }}</td> 
+                    <td>{{ atendimento.endereco }}</td> 
+                    <td>{{ atendimento.data_evento }}</td>
+                    <td>{{ atendimento.horario_inicio }} - {{ atendimento.horario_fim }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+# Ambiente virtual
+venv/
+ENV/
+env/
+
+# Arquivos de cache do Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*$py.class
+
+# Arquivos de configuração locais
+*.env
+*.ini
+*.cfg
+*.local
+db.sqlite3
+
+# Arquivos do Django
+media/
+staticfiles/
+static/
+
+# Logs
+*.log
+
+# Arquivos temporários do sistema
+.DS_Store
+Thumbs.db
+
+# Configurações de IDEs/editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Compilações
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Cache pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Backup
+*.bak

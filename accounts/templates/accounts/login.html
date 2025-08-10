@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %} 
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Login - Food Trunks</title>
+<link rel="stylesheet" href="{% static 'core/style.css' %}">
+<style>
+    .login-container {
+        max-width: 400px;
+        margin: 64px auto 0 auto;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 2px 18px rgba(60,72,125,0.15);
+        padding: 42px 38px 32px 38px;
+        text-align: center;
+    }
+    .login-logo {
+        width: 80px;
+        margin-bottom: 14px;
+    }
+    h2 {
+        color: #6a1b9a;
+        margin-bottom: 24px;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+        width: 90%;
+        padding: 12px 10px;
+        margin-bottom: 18px;
+        border: 1.5px solid #c7d0e0;
+        border-radius: 10px;
+        font-size: 1em;
+        background: #f7fafc;
+    }
+    .login-form button {
+        width: 94%;
+        background: #3949ab;
+        color: #fff;
+        border: none;
+        border-radius: 24px;
+        padding: 12px 0;
+        font-weight: 600;
+        font-size: 1.08em;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+        margin-top: 10px;
+    }
+    .login-form button:hover {
+        background: #FFA726;
+        color: #212121;
+    }
+    .login-help {
+        margin-top: 16px;
+        font-size: 0.97em;
+        color: #757575;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+    <img src="{% static 'img/trunks01.png' %}" alt="Logo Food Trunks" class="login-logo">
+    <h2>Login Food Trunks</h2>
+
+    {% if form.errors %} <!-- Não tenho certeza -->
+        <p style="color:#b71c1c;">Usuário ou senha inválidos.</p>
+    {% endif %}
+    
+    <form method="post" class="login-form">
+        {% csrf_token %}
+
+        <input type="text" name="username" autofocus placeholder="Usuário">
+        <input type="password" name="password" placeholder="Senha">
+        <button type="submit">Entrar</button>
+    </form>
+
+    <div class="login-help">
+        <p>Esqueceu a senha? Fale com o administrador do sistema.</p>
+    </div>
+</div>
+
+</body>
+</html>

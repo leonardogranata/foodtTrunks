@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+{% block content %}
+
+<h2>Faturamento Mensal</h2>
+<form method="get" style="margin-bottom: 16px;">
+    <label for="ano">Ano:</label>
+    <input type="number" name="ano" value="{{ ano }}" min="2020" max="2100">
+    <label for="mes">Mês:</label>
+    <input type="number" name="mes" value="{{ mes }}" min="1" max="12">
+    <button type="submit" class="btn">Filtrar</button>
+</form>
+<p><b>Total Faturado:</b> R$ {{ total|floatformat:2 }}</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Cliente</th>
+            <th>Local</th>
+            <th>Data</th>
+            <th>Itens</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for venda in vendas %}
+        <tr>
+            <td>{{ venda.cliente_nome }}</td>
+            <td>{{ venda.local.nome }}</td>
+            <td>{{ venda.data_venda }}</td>
+            <td>
+                <ul>
+                    {% for item in venda.itens.all %}
+                            <li>{{ item.produto.nome }} x {{ item.quantidade }} = R$ {{ item.subtotal|floatformat:2 }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "core/base.html" %}
+
+{% block title %}Início - Food Trunks{% endblock title %}
+{% block content %}
+{% load static %}
+
+<h2>Bem-vindo ao Food Trunks!</h2>
+<p>
+    Acompanhe suas vendas, cardápio, agenda de locais, e visualize relatórios do seu food truck favorito do universo Dragon Ball!
+</p>
+
+<div style="display: flex; justify-content: center; margin: 32px 0;">
+    <img src="{% static 'img/trunks02.png' %}" alt="Food Trunks" style="max-width: 380px; width: 90%; border-radius: 24px; box-shadow: 0 2px 24px #2196f355;">
+</div>
+
+{% endblock content %}
+
